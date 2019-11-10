@@ -151,6 +151,7 @@ class TimerSkill(MycroftSkill):
         else:
             duration = message.data["duration"]
         secs = self._extract_duration(duration)
+        print(secs)
         if not secs:
             self.speak_dialog("tell.me.how.long")
             return
@@ -174,6 +175,7 @@ class TimerSkill(MycroftSkill):
         if not timer_name:
             # Name after the duration, e.g. "30 second timer"
             timer_name = nice_duration(secs)
+        
 
         now = datetime.now()
         time_expires = now + timedelta(seconds=secs)
